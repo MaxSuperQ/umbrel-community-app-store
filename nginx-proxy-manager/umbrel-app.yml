@@ -3,8 +3,8 @@ id: nginx-proxy-manager
 name: Nginx Proxy Manager
 tagline: Expose your services easily and securely
 icon: https://svgur.com/i/mvA.svg
-category: Networking
-version: "Latest"
+category: Development
+version: "1.0.0"
 port: 22281
 description: >-
   Add your app's description here.
@@ -12,12 +12,12 @@ description: >-
 
   You can also add newlines!
 
-developer: NginxProxyManager
-website: https://nginxproxymanager.com/
-submitter: Test
-submission: https://github.com/NginxProxyManager/nginx-proxy-manager
-repo: https://github.com/NginxProxyManager/nginx-proxy-manager
-support: https://github.com/NginxProxyManager/nginx-proxy-manager/discussions
+developer: Umbrel
+website: https://umbrel.com
+submitter: Umbrel
+submission: https://github.com/getumbrel/umbrel-hello-world-app
+repo: https://github.com/getumbrel/umbrel-hello-world-app
+support: https://github.com/getumbrel/umbrel-hello-world-app/issues
 gallery:
   - https://i.imgur.com/yyVG0Jb.jpeg
   - https://i.imgur.com/yyVG0Jb.jpeg
