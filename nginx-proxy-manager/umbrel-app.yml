@@ -13,7 +13,7 @@ website: https://nginxproxymanager.com/
 dependencies:
 repo: https://github.com/NginxProxyManager/nginx-proxy-manager
 support: https://github.com/NginxProxyManager/nginx-proxy-manager/discussions
-port: 8881
+port: 22281
 gallery:
   - 1.jpg
   - 2.jpg
