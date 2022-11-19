@@ -2,6 +2,7 @@ manifestVersion: 1
 id: nginx-proxy-manager
 category: Networking
 name: Nginx Proxy Manager
+icon: https://svgur.com/i/mvA.svg
 version: "Latest"
 tagline: Expose your services easily and securely
 description: >-
@@ -10,13 +11,15 @@ releaseNotes: >-
   Lorem Ipsum
 developer: NginxProxyManager
 website: https://nginxproxymanager.com/
-dependencies:
+submitter: Test
 repo: https://github.com/NginxProxyManager/nginx-proxy-manager
 support: https://github.com/NginxProxyManager/nginx-proxy-manager/discussions
 port: 22281
 gallery:
-  - 1.jpg
-  - 2.jpg
-  - 3.jpg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
 path: ""
+defaultUsername: "admin@example.com"
+defaultPassword: "changeme"
 torOnly: false

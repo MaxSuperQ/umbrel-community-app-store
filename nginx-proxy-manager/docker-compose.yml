@@ -3,7 +3,7 @@ services:
   app_proxy:
     environment:
       APP_HOST: nginx-proxy-manager_web_1
-      APP_PORT: 81
+      APP_PORT: "81"
   web:
     image: 'jc21/nginx-proxy-manager:latest'
     restart: on-failure
