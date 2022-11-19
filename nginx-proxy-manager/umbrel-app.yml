@@ -1,25 +1,30 @@
 manifestVersion: 1
 id: nginx-proxy-manager
-category: Networking
 name: Nginx Proxy Manager
-icon: https://svgur.com/i/mvA.svg
-version: "Latest"
 tagline: Expose your services easily and securely
+icon: https://svgur.com/i/mvA.svg
+category: Networking
+version: "Latest"
+port: 22281
 description: >-
-  TLDL
-releaseNotes: >-
-  Lorem Ipsum
+  Add your app's description here.
+
+
+  You can also add newlines!
+
 developer: NginxProxyManager
 website: https://nginxproxymanager.com/
 submitter: Test
+submission: https://github.com/NginxProxyManager/nginx-proxy-manager
 repo: https://github.com/NginxProxyManager/nginx-proxy-manager
 support: https://github.com/NginxProxyManager/nginx-proxy-manager/discussions
-port: 22281
 gallery:
   - https://i.imgur.com/yyVG0Jb.jpeg
   - https://i.imgur.com/yyVG0Jb.jpeg
   - https://i.imgur.com/yyVG0Jb.jpeg
+releaseNotes: >-
+  Add what's new in the latest version of your app here.
+dependencies: []
 path: ""
 defaultUsername: "admin@example.com"
 defaultPassword: "changeme"
-torOnly: false
