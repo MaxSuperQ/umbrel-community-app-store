@@ -3,7 +3,7 @@ services:
   app_proxy:
     environment:
       APP_HOST: nginx-proxy-manager_web_1
-      APP_PORT: "81"
+      APP_PORT: 81
   web:
     image: 'jc21/nginx-proxy-manager:latest'
     restart: on-failure
@@ -12,7 +12,6 @@ services:
       # These ports are in format <host-port>:<container-port>
       - '${APP_NPROXYMANAGER_HTTP_PORT}:80' # Public HTTP Port
       - '${APP_NPROXYMANAGER_HTTPS_PORT}:443' # Public HTTPS Port
-      - 
       # Add any other Stream port you want to expose
       # - '21:21' # FTP
 
