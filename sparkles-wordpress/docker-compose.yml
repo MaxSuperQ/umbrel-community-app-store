@@ -27,7 +27,7 @@ services:
     stop_grace_period: 1m
     networks:
       default:
-        ipv4_address: sparkles-wordpress_web_1
+        ipv4_address: $APP_WORDPRESS_IP
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
