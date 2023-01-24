@@ -33,7 +33,7 @@ services:
       default:
         ipv4_address: $APP_WORDPRESS_IP
     environment:
-      WORDPRESS_DB_HOST: sparkles-wordpress_db_1:3306
+      WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
     working_dir: /var/www/html
