@@ -1,0 +1,38 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: $APP_WORDPRESS_IP
+      APP_PORT: $APP_WORDPRESS_PORT
+      PROXY_AUTH_ADD: "false"
+
+  db:
+    image: mariadb:10.7.4-focal
+    volumes:
+      - ${APP_DATA_DIR}/db_data:/var/lib/mysql
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:6.1.1-php8.2-apache
+    restart: on-failure
+    stop_grace_period: 1m
+    networks:
+      default:
+        ipv4_address: $APP_WORDPRESS_IP
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+    working_dir: /var/www/html
+    volumes:
+      - ${APP_DATA_DIR}/wp-content:/var/www/html/wp-content
+      - ${APP_DATA_DIR}/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini

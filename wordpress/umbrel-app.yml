@@ -1,0 +1,22 @@
+manifestVersion: 1
+id: wordpress
+category: Networking
+name: Wordpress
+version: "6.1.1-php8.2-apache"
+tagline: Wordpress
+description: >-
+  Wordpress
+developer: Snax
+website: https://hub.docker.com/layers/library/wordpress
+dependencies: []
+repo: https://github.com/dani-garcia/vaultwarden
+support: https://vaultwarden.discourse.group/
+port: 25666
+gallery:
+  - 1.jpg
+  - 2.jpg
+  - 3.jpg
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+torOnly: false
