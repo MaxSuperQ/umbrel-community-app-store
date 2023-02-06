@@ -16,7 +16,7 @@ services:
     restart: on-failure
     stop_grace_period: 1m
     ports:
-      - 77007:7700
+      - 52431:7700
     volumes:
       - ${APP_DATA_DIR}/ba-meilidata:/meili_data
 
@@ -44,7 +44,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/ba-storage:/var/www/cocktails/storage
     ports:
-      - 80808:80
+      - 52432:80
 
   # Bar Assistant Client
   salt-rim:

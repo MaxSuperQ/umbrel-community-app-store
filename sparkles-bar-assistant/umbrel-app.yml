@@ -5,7 +5,7 @@ tagline: With Salt
 icon: https://svgur.com/i/mvA.svg
 category: Managment
 version: "latest"
-port: 65372
+port: 52433
 description: >-
   Add your app's description here.
 
