@@ -42,7 +42,7 @@ services:
     restart: on-failure
     stop_grace_period: 1m
     volumes:
-      - ba-storage:/var/www/cocktails/storage
+      - ${APP_DATA_DIR}/ba-storage:/var/www/cocktails/storage
     ports:
       - 80808:80
 
