@@ -1,0 +1,58 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: sparkles-bar-assistant_salt-rim_1
+      APP_PORT: 8080
+      PROXY_AUTH_ADD: "false"
+
+  # Setup Meilisearch instance
+  meilisearch:
+    image: getmeili/meilisearch:v0.29
+    environment:
+      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
+      - MEILI_ENV=production
+    restart: on-failure
+    stop_grace_period: 1m
+    ports:
+      - 77007:7700
+    volumes:
+      - ${APP_DATA_DIR}/ba-meilidata:/meili_data
+
+  # Redis for session and file cache
+  redis:
+    image: redis
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    restart: on-failure
+    stop_grace_period: 1m
+
+  # Bar Assistant API
+  bar-assistant:
+    image: kmikus12/bar-assistant-server
+    depends_on:
+      - meilisearch
+      - redis
+    environment:
+      - APP_URL=${API_URL}
+      - MEILISEARCH_KEY=${MEILI_MASTER_KEY}
+      - MEILISEARCH_HOST=${MEILI_HOST}
+      - REDIS_HOST=redis
+    restart: on-failure
+    stop_grace_period: 1m
+    volumes:
+      - ba-storage:/var/www/cocktails/storage
+    ports:
+      - 80808:80
+
+  # Bar Assistant Client
+  salt-rim:
+    image: kmikus12/salt-rim
+    depends_on:
+      - meilisearch
+      - bar-assistant
+    environment:
+      - API_URL=${API_URL}
+    restart: on-failure
+    stop_grace_period: 1m
