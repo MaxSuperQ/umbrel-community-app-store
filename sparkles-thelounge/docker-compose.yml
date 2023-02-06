@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: sparkles-thelounge_thelounge_1
+      APP_PORT: 9000
+      PROXY_AUTH_ADD: "false"
+
+
+  thelounge:
+    image: thelounge/thelounge:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    volumes:
+      - ${APP_DATA_DIR}:/var/opt/thelounge
