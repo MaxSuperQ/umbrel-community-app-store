@@ -1,3 +1,3 @@
-export API_URL=http://umbrel.local:52432
-export MEILI_HOST=http://umbrel.local:52431
+export API_URL=sparkles-bar-assistant_bar-assistant_1
+export MEILI_HOST=sparkles-bar-assistant_meilisearch_1
 export MEILI_MASTER_KEY=cocktailsgobrrrrt
