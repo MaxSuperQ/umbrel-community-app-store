@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: sparkles-quizmaster_app_1
+      APP_PORT: 9000
+      PROXY_AUTH_ADD: "false"
+
+
+  app:
+    image: nymanjens/quizmaster:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    volumes:
+      - ${APP_DATA_DIR}/conf:/app/conf/quiz
+      - ${APP_DATA_DIR}/conf/application.conf:/app/conf/application.conf
+    command: "bin/server"
