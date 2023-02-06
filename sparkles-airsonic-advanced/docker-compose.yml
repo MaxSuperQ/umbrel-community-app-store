@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: sparkles-airsonic-advanced_airsonic_1
+      APP_PORT: 4040
+      PROXY_AUTH_ADD: "false"
+
+  db:
+    image: postgres:latest
+    volumes:
+      - ${APP_DATA_DIR}/db/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+  airsonic:
+    image: airsonicadvanced/airsonic-advanced:latest
+    environment:
+      spring_datasource_url: 'jdbc:postgresql://sparkles-airsonic-advanced_db_1:5432/postgres?stringtype=unspecified&raiseExceptionOnSilentRollback=false'
+      spring_datasource_username: postgres
+      spring_datasource_password: postgres
+      spring_liquibase_parameters_userTableQuote: '"'
+    volumes:
+      - ${APP_DATA_DIR}/music:/var/music
+      - ${APP_DATA_DIR}/podcasts:/var/podcasts
+      - ${APP_DATA_DIR}/playlists:/var/playlists
+      - ${APP_DATA_DIR}/airsonic/data:/var/airsonic
+    ports:
+      - 4041:4041
+    depends_on:
+      - db
