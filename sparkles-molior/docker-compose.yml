@@ -8,8 +8,8 @@ services:
     container_name: molior
     image: neolynx/molior
     volumes:
-      - ${EXPORTS_APP_DIR}/molior_data:/var/lib/molior:rw
-      - ${EXPORTS_APP_DIR}/postgres_data:/var/lib/postgresql:rw
+      - ${APP_DATA_DIR}/molior_data:/var/lib/molior:rw
+      - ${APP_DATA_DIR}/postgres_data:/var/lib/postgresql:rw
     depends_on:
       - aptly
     environment:
@@ -24,7 +24,7 @@ services:
     container_name: aptly
     image: neolynx/molior-aptly
     volumes:
-      - ${EXPORTS_APP_DIR}/aptly_data:/var/lib/aptly:rw
+      - ${APP_DATA_DIR}/aptly_data:/var/lib/aptly:rw
     environment:
       - REPOSIGN_NAME=Molior
       - REPOSIGN_EMAIL=reposign@docker
